@@ -1,0 +1,107 @@
+<div class="container-register-user">
+  <div class="card user-card">
+    <form [formGroup]="userForm" (ngSubmit)="signUp()">
+      <div class="card-body">
+        <div class="form-group">
+          <h1 class="login-header">Register</h1>
+        </div>
+        <div class="card-body">
+          <!-- Email field -->
+          <div class="form-group">
+            <label>Email:</label>
+            <input type="email" class="form-control" formControlName="email">
+            <div
+              *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)">
+              <div *ngIf="userForm.get('email')?.errors?.['required']" class="text-danger">Email is required.</div>
+              <div *ngIf="userForm.get('email')?.errors?.['pattern']" class="text-danger">Invalid email format.</div>
+            </div>
+          </div>
+
+          <!-- Password field -->
+          <div class="form-group">
+            <label>Password:</label>
+            <div class="custom-input">
+              <input [attr.type]="showPassword  ? 'text':'password'"
+                     class="form-control"
+                     type="password"
+                     formControlName="password">
+              <div class="input-group-append" (click)="togglePasswordVisibility()">
+                <i class="bi" [ngClass]="showPassword ? 'bi-eye-fill' : 'bi-eye-slash-fill'"></i>
+              </div>
+            </div>
+
+            <div
+              *ngIf="userForm.get('password')?.invalid && (userForm.get('password')?.dirty || userForm.get('password')?.touched)">
+              <div *ngIf="userForm.get('password')?.errors?.['required']" class="text-danger">Password is required.
+              </div>
+              <div *ngIf="userForm.get('password')?.errors?.['minlength']" class="text-danger">Password must be at least
+                8 characters long.
+              </div>
+              <div *ngIf="userForm.get('password')?.errors?.['pattern']" class="text-danger">
+                Password must contain at least:
+                <br>
+                1 number
+                <br>
+                1 special character
+                <br>
+                1 uppercase letter
+                <br>
+                1 lowercase letter.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Confirm Password:</label>
+              <div class="custom-input">
+                <input [attr.type]="showConfirmPassword ? 'text':'password'"
+                       formControlName="confirmPassword"
+                       class="form-control"
+                       type="password">
+                  <div class="input-group-append" (click)="toggleConfirmPasswordVisibility()" >
+                    <i class="bi" [ngClass]="showConfirmPassword ? 'bi-eye-fill' : 'bi-eye-slash-fill'"></i>
+                  </div>
+              </div>
+              <div
+                *ngIf="userForm.hasError('mismatch') && (userForm.get('confirmPassword')?.dirty || userForm.get('confirmPassword')?.touched)"
+                class="text-danger">
+                Passwords do not match.
+              </div>
+          </div>
+
+        </div>
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Register</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <br>
+
+  <div class="code-container">
+    <div class="card user-card" *ngIf="isConfirm">
+      <form [formGroup]="userCodeForm" (ngSubmit)="confirmSignUp()">
+        <div class="card-body">
+          <div class="form-group">
+            <h1 class="login-header">Confirm Email</h1>
+          </div>
+          <div class="form-group">
+            <label>Code:</label>
+            <input type="text" class="form-control" name="code" formControlName="code">
+            <div
+              *ngIf="userCodeForm.get('code')?.invalid && (userCodeForm.get('code')?.dirty || userCodeForm.get('code')?.touched)">
+              <div *ngIf="userCodeForm.get('code')?.errors?.['required']" class="text-danger">Code is required.</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-success" [disabled]="userCodeForm.invalid">Confirm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+</div>
+

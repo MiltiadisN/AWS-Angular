@@ -1,0 +1,22 @@
+<div class="user-container">
+  <div class="card user-card">
+    <form [formGroup]="userForm" (ngSubmit)="confirmSignUp()">
+      <div class="card-body">
+        <div class="form-group">
+          <h1 class="login-header">Resend Code</h1>
+        </div>
+
+        <div class="form-group">
+          <label>Code:</label>
+          <input type="text" class="form-control" formControlName="code">
+          <div *ngIf="userForm.get('code')?.invalid && (userForm.get('code')?.dirty || userForm.get('code')?.touched)">
+            <div *ngIf="userForm.get('code')?.errors?.['required']" class="text-danger">Code is required.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-success" type="submit" [disabled]="userForm.invalid">Confirm</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+  <h2 class="text-center mt-4 mb-3 " >Orders of <h2 style="color: blue">{{userEmail}}</h2></h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">Price (EUR)</th>
+      <th scope="col">Category</th>
+      <th scope="col">Description</th>
+      <th scope="col">Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of orderArr">
+      <td>{{ product.productName }}</td>
+      <td>{{ product.price | currency: 'EUR'}}</td>
+      <td>{{ product.product_category }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.date | date}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

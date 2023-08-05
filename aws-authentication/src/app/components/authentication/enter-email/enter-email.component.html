@@ -1,0 +1,24 @@
+<div class="user-container">
+  <div class="card user-card">
+    <form [formGroup]="userForm" (ngSubmit)="toForgotPassword()">
+    <div class="card-body">
+      <div class="form-group">
+        <h1 class="login-header">Email</h1>
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" class="form-control" name="email"formControlName="email">
+        <div *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)">
+          <div *ngIf="userForm.get('email')?.errors?.['required']" class="text-danger">Email is required.</div>
+          <div *ngIf="userForm.get('email')?.errors?.['pattern']" class="text-danger">Invalid email format.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <button class="btn btn-success" type="submit" [disabled]="userForm.invalid">Next</button>
+    </div>
+    </form>
+  </div>
+</div>
+

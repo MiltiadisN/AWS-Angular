@@ -1,0 +1,39 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.project-info {
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  margin: 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.user-greeting h2 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.user-greeting span {
+  color: #007bff;
+}

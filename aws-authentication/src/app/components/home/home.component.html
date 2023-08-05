@@ -1,0 +1,31 @@
+<div class="home-container">
+  <h1>Welcome to my Angular App with AWS Integration!</h1>
+
+  <div class="project-info">
+    <p>
+      This project showcases the integration of Angular with AWS services, including Lambda, API Gateway, and Cognito User Pool.
+    </p>
+    <p>
+      The authentication functionality is implemented using Cognito User Pool, allowing users to sign in, sign up, and perform other actions securely.
+    </p>
+    <p>
+      With the help of Lambda and API Gateway, the frontend seamlessly interacts with serverless backend services.
+    </p>
+    <p>
+      The user can view their hypothetical orders and the products they have ordered.
+    </p>
+  </div>
+
+  <div class="user-greeting" *ngIf="isAuthenticated()">
+    <h2>Welcome <span>{{userEmail}}</span>!</h2>
+  </div>
+
+  <div class="actions">
+    <a class="link" routerLink="/register" *ngIf="!isAuthenticated()">Sign Up</a>
+    <a class="link" routerLink="/login" *ngIf="!isAuthenticated()">Log In</a>
+    <a class="link" routerLink="/order" *ngIf="isAuthenticated()">Show your Orders</a>
+  </div>
+
+
+
+</div>
