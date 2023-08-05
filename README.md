@@ -45,6 +45,5 @@ The application provides a authentication and authorization system using Amazon 
 **3. Forgot Password:** In case users forget their passwords, the application allows them to reset their passwords by receiving a verification code through email.                
   ![image](https://github.com/MiltiadisN/test/assets/103901423/78904cfa-5da2-4271-a191-d59153de1acf)   
   
-**4. Resend Code:** If users do not receive the verification code during the sign-up process, they will have the option to request a new code when    
-  they sign in with their email and password in the login section.                
+**4. Resend Code:** If users do not receive the verification code during the sign-up process, they will have the option to request a new code when they sign in with their email and password in the login section.                
   ![image](https://github.com/MiltiadisN/test/assets/103901423/6f644325-5b97-4a30-94f6-9e8c8388243f)    
